@@ -22,9 +22,9 @@ export class MyToken extends DeployableOP_20 {
     // "solidityLikeConstructor" This is a solidity-like constructor. This method will only run once when the contract is deployed.
     public override onDeployment(_calldata: Calldata): void {
         const maxSupply: u256 = u256.fromString('1000000000000000000000000000'); // Your max supply. (Here, 1 billion tokens)
-        const decimals: u8 = 18; // Your decimals.
-        const name: string = 'Test'; // Your token name.
-        const symbol: string = 'TEST'; // Your token symbol.
+        const decimals: u8 = 6; // Your decimals.
+        const name: string = 'ALOP-20'; // Your token name.
+        const symbol: string = 'ALOPO'; // Your token symbol.
 
         this.instantiate(new OP20InitParameters(maxSupply, decimals, name, symbol));
 
@@ -95,7 +95,8 @@ export class MyToken extends DeployableOP_20 {
             totalAirdropped = SafeMath.add(totalAirdropped, amount);
 
             this.createMintEvent(address, amount);
-        }
+        }npm run build
+        
 
         this._totalSupply.set(SafeMath.add(this._totalSupply.value, totalAirdropped));
 
